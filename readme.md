@@ -12,6 +12,8 @@ C/C++ outpus `gcov` reports for all your files covered. To create these files al
 
 ```
 clang -coverage -O0 hello.c -o hello
+./hello
+gcov hello.c
 ```
 
 # Travis CI
