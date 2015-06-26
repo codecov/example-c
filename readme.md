@@ -8,7 +8,7 @@ This repository serves as an **example** on how to use [Codecov Global][4] for C
 
 ## Usage
 
-C/C++ outpus `gcov` reports for all your files covered. To create these files all you need to do is to add the `-coverage` flag to `gcc` or `clang` when building.
+C/C++ output `gcov` reports for all your files covered. To create these files all you need to do is to add the `-coverage` flag to `gcc` or `clang` when building.
 
 ```
 clang -coverage -O0 hello.c -o hello
