@@ -6,4 +6,4 @@ script:
   - gcov hello.c
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - pip install --user git+git://github.com/codecov/codecov-python.git@wip && codecov
