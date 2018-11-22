@@ -1,5 +1,9 @@
 language: c
 sudo: false # only for faster builds
+env:
+  global:
+    - CODECOV_TOKEN=:uuid-repo-token
+    
 script:
   - clang -coverage -O0 hello.c -o hello
   - ./hello
