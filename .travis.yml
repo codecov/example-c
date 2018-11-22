@@ -5,7 +5,7 @@ env:
     - CODECOV_TOKEN=:uuid-repo-token
     
 script:
-  - clang -coverage -O0 hello.c -o hello
+  - gcc -Wall -fprofile-arcs -ftest-coverage hello.c -o hello
   - ./hello
   - gcov hello.c
 
