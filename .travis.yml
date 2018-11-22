@@ -1,8 +1,5 @@
 language: c
 sudo: false # only for faster builds
-env:
-  global:
-    - CODECOV_TOKEN=:uuid-repo-token
     
 script:
   - gcc -Wall -fprofile-arcs -ftest-coverage hello.c -o hello
