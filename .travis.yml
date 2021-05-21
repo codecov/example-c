@@ -1,9 +1,9 @@
 language: c
 sudo: false # only for faster builds
 script:
-  - clang -coverage -O0 hello.c -o hello
+  - gcc -coverage -O0 hello.c test1.c -o hello
   - ./hello
-  - gcov hello.c
+  - gcov hello.c test1.c
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
