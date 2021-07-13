@@ -11,6 +11,10 @@ jobs:
         run: clang -coverage -O0 hello.c -o hello
       - name: Run hello
         run: ./hello
+      - name: See versions
+        run: |
+          g++ --version
+          gcov --version
       - name: Run gcov
         run: gcov hello.c
       - name: Upload reports to Codecov
