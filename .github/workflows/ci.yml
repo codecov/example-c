@@ -7,11 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Produce coverage reports
-        run: |
-          clang -coverage -O0 hello.c -o hello
-          ./hello
-          gcov hello.c
+      - name: Clang
+        run: clang -coverage -O0 hello.c -o hello
+      - name: Run hello
+        run: ./hello
+      - name: Run gcov
+        run: gcov hello.c
       - name: Upload reports to Codecov
         run: |
           curl -Os https://uploader.codecov.io/latest/linux/codecov
