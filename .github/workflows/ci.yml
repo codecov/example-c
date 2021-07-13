@@ -1,0 +1,19 @@
+name: Test and coverage
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Produce coverage reports
+        run: |
+          clang -coverage -O0 hello.c -o hello
+          ./hello
+          gcov hello.c
+      - name: Upload reports to Codecov
+        run: |
+          curl -Os https://uploader.codecov.io/latest/linux/codecov
+          chmod +x codecov
+          ./codecov -f coverage/codecov-result.json -Z
