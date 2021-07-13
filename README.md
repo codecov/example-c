@@ -3,13 +3,15 @@
 
 
 ## Guide
-### Travis Setup
+### GitHub Actions Setup
 
-Add to your `.travis.yml` file.
+Add to your workflow.
 ```yml
-language: c
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
+- name: Upload reports to Codecov
+  run: |
+    curl -Os https://uploader.codecov.io/latest/linux/codecov
+    chmod +x codecov
+    ./codecov -t ${CODECOV_TOKEN}
 ```
 
 ### Produce Coverage Reports
