@@ -10,12 +10,6 @@ jobs:
         run: clang -coverage -O0 hello.c -o hello
       - name: Run tests
         run: ./hello
-      - name: Upload coverage to Codecov
-        run: |
-          curl -Os https://uploader.codecov.io/latest/linux/codecov
-
-          chmod +x codecov
-          ./codecov -g -gx gcov
       - name: ls
         run: ls
       - name: gcov
