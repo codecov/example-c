@@ -7,7 +7,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Compile calculator
-        run: gcc -fprofile-arcs -ftest-coverage -o hello
+        run: gcc -fprofile-arcs -ftest-coverage hello.c -o hello
       - name: Run tests
         run: ./hello
       - name: ls
