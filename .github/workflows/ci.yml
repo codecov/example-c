@@ -15,3 +15,5 @@ jobs:
         with:
           gcov: true
           verbose: true
+      - name: ls
+        run: ls
