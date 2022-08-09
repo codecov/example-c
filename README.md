@@ -3,14 +3,6 @@
 
 
 ## Guide
-### Travis Setup
-
-Add to your `.travis.yml` file.
-```yml
-language: c
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
-```
 
 ### Produce Coverage Reports
 C/C++ output `gcov` reports for all your files covered. To create these files all you need to do is to add the `-coverage` flag to `gcc` or `clang` when building.
