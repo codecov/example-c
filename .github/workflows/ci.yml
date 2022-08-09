@@ -10,11 +10,9 @@ jobs:
         run: gcc -fprofile-arcs -ftest-coverage hello.c -o hello
       - name: Run tests
         run: ./hello
-      - name: ls
-        run: ls
-      - name: gcov
-        run: gcov -pb hello.gcno
-      - name: ls
-        run: ls
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
+        with:
+          gcov: true
+      - name: ls
+        runs: ls
