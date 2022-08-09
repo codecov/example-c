@@ -17,4 +17,4 @@ jobs:
       - name: ls
         run: ls
       - name: Upload coverage to Codecov
-        run: ./codecov
+        with: codecov/codecov-action@v3
