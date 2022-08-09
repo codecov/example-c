@@ -11,9 +11,16 @@ jobs:
       - name: Run tests
         run: ./hello
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
-        with:
-          gcov: true
-          verbose: true
+        run: |
+          curl -Os https://uploader.codecov.io/latest/linux/codecov
+
+          chmod +x codecov
+          ./codecov -g -gx gcov
       - name: ls
         run: ls
+      - name: gcov
+        run: gcov -pb hello.gcno
+      - name: ls
+        run: ls
+      - name: Upload coverage to Codecov
+        run: ./codecov
