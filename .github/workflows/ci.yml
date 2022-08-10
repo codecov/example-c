@@ -30,7 +30,7 @@ jobs:
       - name: ls
         run: ls
       - name: gcov
-        run: gcov -pb hello.gcno -v
+        run: gcov -pbw hello.gcno
       - name: ls
         run: ls
       - name: Upload coverage to Codecov
