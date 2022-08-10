@@ -19,24 +19,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: versions
-        run: |
-          clang -v
-          gcov -v
-      - name: Update clang
-        run: |
-          sudo apt update
-          sudo apt install gcc-10
-      - name: versions
-        run: |
-          clang -v
-          gcov -v
+      - name: ls
+        run: ls
       - name: Compile calculator
         run: clang -coverage -O0 hello.c -o hello -v
+      - name: ls
+        run: ls
       - name: Run tests
         run: ./hello
+      - name: ls
+        run: ls
       - name: gcov
         run: gcov -pb hello.gcno -v
+      - name: ls
+        run: ls
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
