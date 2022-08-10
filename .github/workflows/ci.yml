@@ -1,7 +1,7 @@
 name: Workflow for Codecov example-c
 on: [push, pull_request]
 jobs:
-  run:
+  run-gcc:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -14,5 +14,16 @@ jobs:
         uses: codecov/codecov-action@v3
         with:
           gcov: true
-      - name: ls
-        run: ls
+  run-clang:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Compile calculator
+        run: clang -coverage -O0 hello.c -o hello
+      - name: Run tests
+        run: ./hello
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          gcov: true
