@@ -36,7 +36,7 @@ jobs:
       - name: Run tests
         run: ./hello
       - name: gcov
-        run: gcov -pb hello.c.gcov -v
+        run: gcov -pb hello.gcno -v
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
