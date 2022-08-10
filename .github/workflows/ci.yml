@@ -35,8 +35,9 @@ jobs:
         run: clang -coverage -O0 hello.c -o hello -v
       - name: Run tests
         run: ./hello
+      - name: gcov
+        run: gcov -pb hello.c.gcov -v
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
-          gcov: true
           verbose: true
