@@ -19,6 +19,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: versions
+        run: |
+          clang -v
+          gcov -v
+      - name: Update clang
+        run: |
+          sudo apt update
+          sudo apt install gcc-10
+      - name: versions
+        run: |
+          clang -v
+          gcov -v
       - name: Compile calculator
         run: clang -coverage -O0 hello.c -o hello -v
       - name: Run tests
