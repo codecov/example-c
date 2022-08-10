@@ -1,0 +1,25 @@
+version: 2.1
+orbs:
+  codecov: codecov/codecov@3
+
+jobs:
+  build:
+    docker:
+      - image: cimg/base:current
+    steps:
+      - checkout
+      - run:
+          name: Compile calculator
+          command: gcc -fprofile-arcs -ftest-coverage -O0 -o test_calculator test_calculator.c calculator.c
+      - run:
+          name: Run tests
+          command: ./test_calculator
+      - codecov/upload:
+          xtra_args: '--gcov --gcovInclude caluclator.c'
+
+
+workflow:
+  version: 2.1
+  build-test:
+    jobs:
+      - build
