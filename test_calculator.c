@@ -32,7 +32,7 @@ void test_divide() {
     assert(divide(1.0, 2.0) == 0.5);
     assert(divide(0, 2.0) == 0);
     assert(divide(-4, 2.0) == -2.0);
-    // assert(divide(2.0, 0) == 0.0);
+    assert(divide(2.0, 0) == 0.0);
 }
 
 int main() {
