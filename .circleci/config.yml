@@ -15,7 +15,7 @@ jobs:
           name: Run tests
           command: ./test_calculator
       - codecov/upload:
-          xtra_args: '--gcov --gcovInclude caluclator.c'
+          xtra_args: '--gcov --gcovInclude calculator.c'
 
 
 workflow:
